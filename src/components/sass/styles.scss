@@ -11,10 +11,40 @@
   body {
     margin: 0 auto;
     padding: 0;
+    font-family: $font-stack;
+    font-size: 100%;
   }
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+table {
+  td {
+    vertical-align: middle;
+    border: 0;
+  }
+  tr {
+    height: 50px;
+  }
+
+  th {
+    border: 0;
+  }
+}
+
+.custom-table__action-btn {
+  cursor: pointer;
+  border: 0;
+  background: none;
+  margin-right: 5px;
+
+  svg {
+    pointer-events: none;
+    padding: 5px;
+    width: 1.7em;
+    height: 1.7em;
+  }
 }

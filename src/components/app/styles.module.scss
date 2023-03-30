@@ -1,0 +1,8 @@
+.wrapper {
+  width: 900px;
+  display: grid;
+  grid-template-columns: 15% 1fr;
+  flex-direction: row;
+  margin: 20px auto;
+  gap: 20px;
+}
