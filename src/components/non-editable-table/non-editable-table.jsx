@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 
-const NonEditableTable = ({ data, columns }) => {
+const NonEditableTable = ({ columns, rowsState }) => {
   return (
     <Table bordered hover>
       <thead>
@@ -12,7 +12,7 @@ const NonEditableTable = ({ data, columns }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((row, index) => {
+        {rowsState.map((row, index) => {
           return (
             <tr key={index}>
               <td>{row.name}</td>

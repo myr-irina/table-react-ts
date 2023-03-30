@@ -1,4 +1,5 @@
 export type TrainData = {
+  id?: string;
   name: string;
   description: string;
   speedLimits: Speedlimits[];
