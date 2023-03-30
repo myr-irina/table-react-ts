@@ -1,11 +1,16 @@
 export type TrainData = {
-  id?: string;
   name: string;
   description: string;
-  speedLimits: Speedlimits[];
+  speedLimits: Speedlimit[];
 };
 
-export type Speedlimits = {
+export type TrainDataId = TrainData & {
+  id: string;
+};
+
+export type Speedlimit = {
   name: string;
   speedLimit: number;
 };
+
+export type Speedlimits = Speedlimit[];

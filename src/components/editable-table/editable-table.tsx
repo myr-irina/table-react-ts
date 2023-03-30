@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { Form, Table } from 'react-bootstrap';
-import { PencilFill, Save, Trash, XSquare } from 'react-bootstrap-icons';
+import React from 'react';
+import { Table } from 'react-bootstrap';
 import TableItem from '../table-item/table-item';
-import './EditableTable.styles.scss';
 import { EditableTableProps } from '../../types/editable-table-props';
 
 const EditableTable = ({

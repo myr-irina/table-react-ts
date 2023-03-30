@@ -4,9 +4,10 @@ import NonEditableTable from '../non-editable-table/non-editable-table';
 import styles from './styles.module.scss';
 import { data } from '../../utils/data';
 import { v4 as uuidv4 } from 'uuid';
+import { TrainDataId } from '../../types/train-data';
 
 function App() {
-  const updatedData = data.map((item) => {
+  const updatedData: TrainDataId[] = data.map((item) => {
     return {
       id: uuidv4(),
       ...item,

@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { Form, Table } from 'react-bootstrap';
-import { PencilFill, Save, Trash, XSquare } from 'react-bootstrap-icons';
-import {
-  EditableTableProps,
-  TableItemProps,
-} from '../../types/editable-table-props';
+import { Form } from 'react-bootstrap';
+import { PencilFill, Save, XSquare } from 'react-bootstrap-icons';
+import { TableItemProps } from '../../types/editable-table-props';
 
 const TableItem = ({
   isEditMode,
@@ -17,17 +14,17 @@ const TableItem = ({
 }: TableItemProps) => {
   const [rowData, setRowData] = useState(row);
 
-  const handleOnChange = (value: string, id: string) => {
+  const handleOnChange = (value: any, id: number) => {
     const speedLimits = [...rowData.speedLimits];
     speedLimits[id].speedLimit = value;
     const newData = { ...rowData, speedLimits };
     setRowData(newData);
   };
 
-  function prepareRowData({ id, name, speedLimits }) {
+  function prepareRowData({ id, name, speedLimits }: any) {
     const sortedSpeedLimits = speedLimits
-      .sort((a, b) => a.speedLimit - b.speedLimit)
-      .map(({ speedLimit }, index) => ({
+      .sort((a: any, b: any) => a.speedLimit - b.speedLimit)
+      .map(({ speedLimit }: any, index: any) => ({
         speedLimit,
         name: `Скорость №${index}`,
       }));
@@ -35,7 +32,7 @@ const TableItem = ({
     return { id, name, speedLimits: sortedSpeedLimits };
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     const newRowData = prepareRowData(rowData);
     handleSaveRowChanges(newRowData);
@@ -66,7 +63,6 @@ const TableItem = ({
               <button
                 onClick={handleSubmit}
                 className='custom-table__action-btn'
-                // disabled={!editedRow}
               >
                 <Save />
               </button>
