@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, ClipboardEvent } from 'react';
 import { Form } from 'react-bootstrap';
 import { PencilFill, Save, XSquare } from 'react-bootstrap-icons';
 import { TableItemProps } from '../../types/editable-table-props';
+import { Speedlimit, UpdatedTrainData } from '../../types/train-data';
 import styles from './table-item.module.scss';
 
 const TableItem = ({ row, actions }: TableItemProps) => {
@@ -18,25 +19,25 @@ const TableItem = ({ row, actions }: TableItemProps) => {
     setIsEditMode(false);
   };
 
-  const handleOnChange = (value: any, id: number) => {
+  const handleOnChange = (value: string, id: number) => {
     const speedLimits = [...rowData.speedLimits];
-    speedLimits[id].speedLimit = value;
+    speedLimits[id].speedLimit = +value;
     const newData = { ...rowData, speedLimits };
     setRowData(newData);
   };
 
-  function prepareRowData({ id, name, speedLimits }: any) {
+  function prepareRowData({ id, name, speedLimits }: UpdatedTrainData) {
     const sortedSpeedLimits = speedLimits
-      .sort((a: any, b: any) => a.speedLimit - b.speedLimit)
-      .map(({ speedLimit }: any, index: any) => ({
-        speedLimit,
+      .sort((a: Speedlimit, b: Speedlimit) => a.speedLimit - b.speedLimit)
+      .map(({ speedLimit }: Speedlimit, index: number) => ({
         name: `Скорость №${index}`,
+        speedLimit,
       }));
 
     return { id, name, speedLimits: sortedSpeedLimits };
   }
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const newRowData = prepareRowData(rowData);
 
@@ -48,7 +49,7 @@ const TableItem = ({ row, actions }: TableItemProps) => {
     console.log({ newRowData });
   };
 
-  const preventPasteNegative = (e: any) => {
+  const preventPasteNegative = (e: ClipboardEvent<HTMLInputElement>) => {
     const clipboardData = e.clipboardData || window.Clipboard;
     const pastedData = parseFloat(clipboardData.getData('text'));
 
@@ -57,7 +58,7 @@ const TableItem = ({ row, actions }: TableItemProps) => {
     }
   };
 
-  const preventMinus = (e: any) => {
+  const preventMinus = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.code === 'Minus') {
       e.preventDefault();
     }

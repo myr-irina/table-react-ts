@@ -1,15 +1,12 @@
-import { TrainDataId } from './train-data';
+import { UpdatedTrainData } from './train-data';
 
 export type EditableTableProps = {
   columns: string[];
-  rows: TrainDataId[];
+  rows: UpdatedTrainData[];
   actions: boolean;
 };
 
 export type TableItemProps = {
-  row: TrainDataId;
+  row: UpdatedTrainData;
   actions: boolean;
 };
-
-type HandleEditType = (a: string) => void;
-type HandleVoidFn = (a?: any) => void;

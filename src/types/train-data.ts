@@ -4,7 +4,7 @@ export type TrainData = {
   speedLimits: Speedlimit[];
 };
 
-export type TrainDataId = TrainData & {
+export type UpdatedTrainData = TrainData & {
   id: string;
 };
 
