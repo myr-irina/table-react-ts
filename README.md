@@ -30,4 +30,4 @@ npm run start
 
 ### Ссылка на таблицу
 
-Таблица размещена на gh-pages, ее можно посмотреть по ссылке: [Таблица](https://facebook.github.io/create-react-app/docs/getting-started).
+Таблица размещена на gh-pages, ее можно посмотреть по ссылке: [Таблица](https://myr-irina.github.io/table-react-ts/).
