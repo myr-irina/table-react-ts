@@ -11,17 +11,3 @@ table {
     border: 0;
   }
 }
-
-.custom-table__action-btn {
-  cursor: pointer;
-  border: 0;
-  background: none;
-  margin-right: 5px;
-
-  svg {
-    pointer-events: none;
-    padding: 5px;
-    width: 1.7em;
-    height: 1.7em;
-  }
-}

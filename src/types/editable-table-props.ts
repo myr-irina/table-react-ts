@@ -3,11 +3,11 @@ import { TrainDataId } from './train-data';
 export type EditableTableProps = {
   columns: string[];
   rows: TrainDataId[];
-  isEditMode: boolean;
-  rowIDToEdit: string | null;
-  handleEdit: HandleEditType;
-  handleCancelEditing: HandleVoidFn;
-  handleSaveRowChanges: HandleVoidFn;
+  // isEditMode: boolean;
+  // rowIDToEdit: string | null;
+  // handleEdit: HandleEditType;
+  // handleCancelEditing: HandleVoidFn;
+  // handleSaveRowChanges: HandleVoidFn;
   actions: boolean;
 };
 

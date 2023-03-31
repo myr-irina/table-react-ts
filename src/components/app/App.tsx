@@ -5,7 +5,6 @@ import styles from './styles.module.scss';
 import { data } from '../../utils/data';
 import { v4 as uuidv4 } from 'uuid';
 import { TrainDataId } from '../../types/train-data';
-import './../sass/styles.scss';
 
 function App() {
   const updatedData: TrainDataId[] = data.map((item) => {
@@ -24,25 +23,25 @@ function App() {
     }
   }
   const columnsRight = [...new Set(newArray)];
-
-  const [isEditMode, setIsEditMode] = useState(false);
-  const [rowIDToEdit, setRowIDToEdit] = useState<string | null>(null);
   const [rowsState, setRowsState] = useState(updatedData);
 
-  const handleEdit = (rowID: string) => {
-    setIsEditMode(true);
-    setRowIDToEdit(rowID);
-  };
+  // const [isEditMode, setIsEditMode] = useState(false);
+  // const [rowIDToEdit, setRowIDToEdit] = useState<string | null>(null);
 
-  const handleCancelEditing = () => {
-    setIsEditMode(false);
-  };
+  // const handleEdit = (rowID: string) => {
+  //   setIsEditMode(true);
+  //   setRowIDToEdit(rowID);
+  // };
 
-  const handleSaveRowChanges = () => {
-    setTimeout(() => {
-      setIsEditMode(false);
-    }, 1000);
-  };
+  // const handleCancelEditing = () => {
+  //   setIsEditMode(false);
+  // };
+
+  // const handleSaveRowChanges = () => {
+  //   setTimeout(() => {
+  //     setIsEditMode(false);
+  //   }, 1000);
+  // };
 
   return (
     <div className={styles.wrapper}>
@@ -50,11 +49,11 @@ function App() {
       <EditableTable
         columns={columnsRight}
         rows={rowsState}
-        isEditMode={isEditMode}
-        rowIDToEdit={rowIDToEdit}
-        handleEdit={handleEdit}
-        handleCancelEditing={handleCancelEditing}
-        handleSaveRowChanges={handleSaveRowChanges}
+        // isEditMode={isEditMode}
+        // rowIDToEdit={rowIDToEdit}
+        // handleEdit={handleEdit}
+        // handleCancelEditing={handleCancelEditing}
+        // handleSaveRowChanges={handleSaveRowChanges}
         actions
       />
     </div>

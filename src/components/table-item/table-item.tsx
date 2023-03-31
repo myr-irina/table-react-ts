@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { PencilFill, Save, XSquare } from 'react-bootstrap-icons';
 import { TableItemProps } from '../../types/editable-table-props';
+import styles from './table-item.module.scss';
 
 const TableItem = ({
   isEditMode,
@@ -60,16 +61,13 @@ const TableItem = ({
         {actions && (
           <>
             {isEditMode && rowIDToEdit === row.id ? (
-              <button
-                onClick={handleSubmit}
-                className='custom-table__action-btn'
-              >
+              <button onClick={handleSubmit} className={styles.action_btn}>
                 <Save />
               </button>
             ) : (
               <button
                 onClick={() => handleEdit(row.id)}
-                className='custom-table__action-btn'
+                className={styles.action_btn}
               >
                 <PencilFill />
               </button>
@@ -77,7 +75,7 @@ const TableItem = ({
             {isEditMode && rowIDToEdit === row.id ? (
               <button
                 onClick={() => handleCancelEditing()}
-                className='custom-table__action-btn'
+                className={styles.action_btn}
               >
                 <XSquare />
               </button>
@@ -96,7 +94,6 @@ const TableItem = ({
                 onKeyDown={preventMinus}
                 defaultValue={element.speedLimit}
                 id={row.id}
-                name='speedLimit'
                 onChange={(evt) => handleOnChange(evt.target.value, index)}
               />
             ) : (
