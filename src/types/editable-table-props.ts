@@ -1,4 +1,4 @@
-import { TrainData, TrainDataId } from './train-data';
+import { TrainDataId } from './train-data';
 
 export type EditableTableProps = {
   columns: string[];
@@ -8,7 +8,7 @@ export type EditableTableProps = {
   handleEdit: HandleEditType;
   handleCancelEditing: HandleVoidFn;
   handleSaveRowChanges: HandleVoidFn;
-  actions: any;
+  actions: boolean;
 };
 
 export type TableItemProps = {
@@ -18,7 +18,7 @@ export type TableItemProps = {
   handleEdit: HandleEditType;
   handleCancelEditing: HandleVoidFn;
   handleSaveRowChanges: HandleVoidFn;
-  actions: any;
+  actions: boolean;
 };
 
 type HandleEditType = (a: string) => void;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
+import './non-editable-table.scss';
 
 const NonEditableTable = ({ columns, rowsState }) => {
   return (

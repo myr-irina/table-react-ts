@@ -2,6 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import TableItem from '../table-item/table-item';
 import { EditableTableProps } from '../../types/editable-table-props';
+import './editable-table.module.scss';
 
 const EditableTable = ({
   columns,
@@ -14,7 +15,7 @@ const EditableTable = ({
   actions,
 }: EditableTableProps) => {
   return (
-    <Table bordered hover>
+    <Table hover bordered>
       <thead>
         <tr>
           <th>Edit</th>

@@ -5,6 +5,7 @@ import styles from './styles.module.scss';
 import { data } from '../../utils/data';
 import { v4 as uuidv4 } from 'uuid';
 import { TrainDataId } from '../../types/train-data';
+import './../sass/styles.scss';
 
 function App() {
   const updatedData: TrainDataId[] = data.map((item) => {
