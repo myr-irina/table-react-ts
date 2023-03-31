@@ -25,37 +25,10 @@ function App() {
   const columnsRight = [...new Set(newArray)];
   const [rowsState, setRowsState] = useState(updatedData);
 
-  // const [isEditMode, setIsEditMode] = useState(false);
-  // const [rowIDToEdit, setRowIDToEdit] = useState<string | null>(null);
-
-  // const handleEdit = (rowID: string) => {
-  //   setIsEditMode(true);
-  //   setRowIDToEdit(rowID);
-  // };
-
-  // const handleCancelEditing = () => {
-  //   setIsEditMode(false);
-  // };
-
-  // const handleSaveRowChanges = () => {
-  //   setTimeout(() => {
-  //     setIsEditMode(false);
-  //   }, 1000);
-  // };
-
   return (
     <div className={styles.wrapper}>
       <NonEditableTable rowsState={rowsState} columns={columnsLeft} />
-      <EditableTable
-        columns={columnsRight}
-        rows={rowsState}
-        // isEditMode={isEditMode}
-        // rowIDToEdit={rowIDToEdit}
-        // handleEdit={handleEdit}
-        // handleCancelEditing={handleCancelEditing}
-        // handleSaveRowChanges={handleSaveRowChanges}
-        actions
-      />
+      <EditableTable columns={columnsRight} rows={rowsState} actions />
     </div>
   );
 }

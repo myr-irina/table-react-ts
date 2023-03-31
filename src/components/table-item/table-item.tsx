@@ -4,16 +4,19 @@ import { PencilFill, Save, XSquare } from 'react-bootstrap-icons';
 import { TableItemProps } from '../../types/editable-table-props';
 import styles from './table-item.module.scss';
 
-const TableItem = ({
-  isEditMode,
-  row,
-  rowIDToEdit,
-  handleCancelEditing,
-  actions,
-  handleSaveRowChanges,
-  handleEdit,
-}: TableItemProps) => {
+const TableItem = ({ row, actions }: TableItemProps) => {
   const [rowData, setRowData] = useState(row);
+  const [rowIDToEdit, setRowIDToEdit] = useState<string | null>(null);
+  const [isEditMode, setIsEditMode] = useState(false);
+
+  const handleEdit = (rowID: string) => {
+    setIsEditMode(true);
+    setRowIDToEdit(rowID);
+  };
+
+  const handleCancelEditing = () => {
+    setIsEditMode(false);
+  };
 
   const handleOnChange = (value: any, id: number) => {
     const speedLimits = [...rowData.speedLimits];
@@ -36,7 +39,12 @@ const TableItem = ({
   const handleSubmit = (e: any) => {
     e.preventDefault();
     const newRowData = prepareRowData(rowData);
-    handleSaveRowChanges(newRowData);
+
+    setTimeout(() => {
+      setIsEditMode(false);
+      console.log({ newRowData });
+    }, 1000);
+
     console.log({ newRowData });
   };
 
